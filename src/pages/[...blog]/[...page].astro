@@ -1,7 +1,7 @@
 ---
 import { SITE, BLOG } from '~/config.mjs';
 
-import Layout from '~/layouts/BlogLayout.astro';
+import BlogLayout from '~/layouts/BlogLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Pagination from '~/components/atoms/Pagination.astro';
 
@@ -31,11 +31,14 @@ const meta = {
 };
 ---
 
-<Layout {meta}>
+<BlogLayout {meta}>
 	<Fragment slot="title">
-		News and step-by-step guides about
-		<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">AstroWind</span>
+		My most recent
+		<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">Projects</span>
+		including <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500"
+			>Live Preview</span
+		>
 	</Fragment>
 	<BlogList posts={page.data} />
 	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-</Layout>
+</BlogLayout>

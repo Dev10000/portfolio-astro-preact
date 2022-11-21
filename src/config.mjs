@@ -1,12 +1,12 @@
 export const SITE = {
-	name: 'AstroWind',
+	name: 'Tim',
 
-	origin: 'https://astrowind.vercel.app',
+	origin: 'https://www.dev100.xyz',
 	basePathname: '/',
 	trailingSlash: false,
 
-	title: 'AstroWind — Your website with Astro + Tailwind CSS',
-	description: '🚀 AstroWind is a free and ready to start template to make your website using Astro and Tailwind CSS.',
+	title: 'Online Portfolio',
+	description: 'Online Portfolio',
 
 	googleAnalyticsId: false, // or "G-XXXXXXXXXX",
 	googleSiteVerificationId: 'orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M',
@@ -14,11 +14,11 @@ export const SITE = {
 
 export const BLOG = {
 	disabled: false,
-	postsPerPage: 4,
+	postsPerPage: 6,
 
 	blog: {
 		disabled: false,
-		pathname: 'blog', // blog main path, you can change this to "articles" (/articles)
+		pathname: 'portfolio', // blog main path, you can change this to "articles" (/articles)
 	},
 
 	post: {

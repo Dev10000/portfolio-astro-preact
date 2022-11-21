@@ -2,6 +2,7 @@
 import Picture from '~/components/core/Picture.astro';
 import PostTags from '~/components/atoms/Tags.astro';
 import SocialShare from '~/components/atoms/SocialShare.astro';
+import { Icon } from 'astro-icon';
 
 import { getFormattedDate } from '~/utils/utils';
 
@@ -36,6 +37,47 @@ const { post, url } = Astro.props;
 					</div>
 				)
 			}
+			<div class="max-w-none px-6 flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+				<div class="flex w-full sm:w-auto">
+					<a
+						class="btn text-white border border-primary-600 bg-primary-600 hover:bg-primary-800 hover:border-primary-800 sm:mb-0 w-full"
+						href={post.github}
+						target="_blank"
+						rel="noopener"
+					>
+						<Icon name="tabler:brand-github" class="w-5 h-5 mr-1 -ml-1.5" /> GitHub
+					</a>
+				</div>
+				{
+					post.apiDocs && (
+						<div class="flex w-full sm:w-auto">
+							<a
+								class="btn text-white border border-primary-600 bg-primary-600 hover:bg-primary-800 hover:border-primary-800 sm:mb-0 w-full"
+								href={post.apiDocs}
+								target="_blank"
+								rel="noopener"
+							>
+								<Icon name="simple-icons:postman" class="w-5 h-5 mr-1 -ml-1.5" /> API Docs
+							</a>
+						</div>
+					)
+				}
+				{
+					post.livePreview && (
+						<div class="flex w-full sm:w-auto">
+							<a
+								class="btn text-white bg-gray-900 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-800 w-full"
+								href={post.livePreview}
+								target="_blank"
+								rel="noopener"
+							>
+								<Icon name="fluent:preview-link-24-regular" class="w-5 h-5 mr-1 -ml-1.5" />
+								Live Preview
+							</a>
+						</div>
+					)
+				}
+			</div>
 		</header>
 		<div
 			class="container mx-auto px-6 sm:px-6 max-w-3xl prose prose-lg lg:prose-xl dark:prose-invert dark:prose-headings:text-slate-300 prose-md prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-md prose-img:shadow-lg mt-8"
@@ -44,11 +86,7 @@ const { post, url } = Astro.props;
 		</div>
 		<div class="container mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
 			<PostTags tags={post.tags} class="mr-5" />
-			<SocialShare
-				url={url}
-				text={post.title}
-				class="mt-5 sm:mt-1 align-middle text-gray-400 dark:text-slate-600"
-			/>
+			<SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-400 dark:text-slate-600" />
 		</div>
 	</article>
 </section>
